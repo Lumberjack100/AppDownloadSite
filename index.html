@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>应用下载</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        window.onload = function () {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // iOS 设备检测
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // App Store 链接
+                window.location.href = "https://apps.apple.com/app/id6739761641";
+            }
+            // Android 设备检测
+            else if (/android/i.test(userAgent)) {
+                // 蒲公英下载链接
+                window.location.href = "https://www.pgyer.com/mdnet3";
+            }
+            // 其他设备显示选择界面
+            else {
+                document.getElementById('download-options').style.display = 'block';
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>下载我们的应用</h1>
+    <div id="download-options" style="display: none;">
+        <p>请选择您的设备类型：</p>
+        <a href="https://apps.apple.com/app/id6739761641" class="button">iOS 下载</a>
+        <a href="https://www.pgyer.com/mdnet3" class="button">Android 下载</a>
+    </div>
+    <div id="loading">
+        正在检测您的设备类型，即将跳转到下载页面...
+    </div>
+</body>
+
+</html>
